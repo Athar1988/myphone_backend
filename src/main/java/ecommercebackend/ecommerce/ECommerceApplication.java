@@ -31,14 +31,24 @@ public class ECommerceApplication implements CommandLineRunner {
 
         repositoryRestConfiguration.exposeIdsFor(Product.class,Category.class);
 
-        categoryRepository.save(new Category(null,"Computers",null,null,null));
-        categoryRepository.save(new Category(null,"Printers",null,null,null));
-        categoryRepository.save(new Category(null,"Smart phones",null,null,null));
+        categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
+        categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
+        categoryRepository.save(new Category(null,"Produits apple","bi bi-phone-vibrate-fill", null));
+        categoryRepository.save(new Category(null,"Coque iphone","bi bi-music-player-fill",null));
+        categoryRepository.save(new Category(null,"Airpods","bi bi-earbuds",null));
+        categoryRepository.save(new Category(null,"Haut parleur","bi bi-megaphone-fill",null));
+        categoryRepository.save(new Category(null,"Smart watch","bi bi-clock-fill",null));
+        categoryRepository.save(new Category(null,"Accessoires","bi bi-keyboard-fill",null));
+        categoryRepository.save(new Category(null,"Cache","bi bi-person-badge-fill",null));
+        categoryRepository.save(new Category(null,"Pochette","bi bi-file-ppt-fill",null));
+        categoryRepository.save(new Category(null,"Camera","bi bi-camera-fill",null));
+        categoryRepository.save(new Category(null,"Divers","bi bi-gift-fill",null));
         Random rnd=new Random();
         categoryRepository.findAll().forEach(c->{
             for (int i = 0; i <10 ; i++) {
                 Product p=new Product();
                 p.setName(RandomString.make(18));
+                p.setMarque(RandomString.make(6));
                 p.setCurrentPrice(100+rnd.nextInt(10000));
                 p.setAvailable(rnd.nextBoolean());
                 p.setPromotion(rnd.nextBoolean());

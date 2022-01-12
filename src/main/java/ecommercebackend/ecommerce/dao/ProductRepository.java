@@ -14,10 +14,30 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @RestResource(path = "/selectedProducts")
     public List<Product> findBySelectedIsTrue();
-    @RestResource(path = "/productsByKeyword")
+
+    @RestResource(path = "/productsName")
     public List<Product> findByNameContains(@Param("mc") String mc);
+    @RestResource(path = "/productsMarque")
+    public List<Product> findByMarqueContains(@Param("mc") String mc);
+    @RestResource(path = "/productsDescription")
+    public List<Product> findByDescriptionContains(@Param("mc") String mc);
+    @RestResource(path = "/productsCategory")
+    public List<Product> findByCategoryContains(@Param("mc") String mc);
+
+     //products/search/topOffre plus de 70%
+    /*@RestResource(path = "/topOffre")
+    public List<Product> findByCategoryContains(@Param("mc") String mc);
+    */
+
+    ///products/search/promo
     @RestResource(path = "/promoProducts")
     public List<Product> findByPromotionIsTrue();
+
+    //products/search/produitDisponible
     @RestResource(path = "/dispoProducts")
     public List<Product> findByAvailableIsTrue();
+
+    //dernierAjoute les 10 dernier produit
+   /* @RestResource(path = "/dernierAjoute")
+    public List<Product> findByAvailableIsTrue();*/
 }
