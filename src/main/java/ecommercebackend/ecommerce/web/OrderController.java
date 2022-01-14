@@ -30,11 +30,14 @@ public class OrderController {
     @PostMapping("/orders")
     public Order saveOrder(@RequestBody OrderForm orderForm){
         Client client=new Client();
-        client.setName(orderForm.getClient().getName());
+        client.setNom(orderForm.getClient().getNom());
         client.setEmail(orderForm.getClient().getEmail());
         client.setAddress(orderForm.getClient().getAddress());
-        client.setPhoneNumber(orderForm.getClient().getPhoneNumber());
-        client.setUsername(orderForm.getClient().getUsername());
+        client.setTelephone(orderForm.getClient().getTelephone());
+        client.setPrenom(orderForm.getClient().getPrenom());
+        client.setVille(orderForm.getClient().getVille());
+        client.setMotdepasse(orderForm.getClient().getMotdepasse());
+
         client=clientRepository.save(client);
         System.out.println(client.getId());
 

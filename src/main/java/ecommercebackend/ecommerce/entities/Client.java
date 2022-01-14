@@ -16,9 +16,12 @@ import javax.persistence.*;
 public class Client {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
     private String email;
+    private String telephone;
+    private String nom;
+    private String prenom;
+    private String ville;
     private String address;
-    private String phoneNumber;
-    private String username;
+    private String motdepasse;
 }
