@@ -16,7 +16,6 @@ import javax.persistence.*;
 public class Client {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String email;
     private String telephone;
     private String nom;
@@ -24,4 +23,9 @@ public class Client {
     private String ville;
     private String address;
     private String motdepasse;
+    @OneToOne
+    private Panier panier;
+    @OneToOne
+    private Order order;
+
 }

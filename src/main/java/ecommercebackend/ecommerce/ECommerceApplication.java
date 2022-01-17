@@ -49,12 +49,13 @@ public class ECommerceApplication implements CommandLineRunner {
                 Product p=new Product();
                 p.setName(RandomString.make(18));
                 p.setMarque(RandomString.make(6));
+                p.setDescription(RandomString.make(25));
                 p.setCurrentPrice(100+rnd.nextInt(10000));
-                p.setAvailable(rnd.nextBoolean());
+                p.setPourcentage((100+rnd.nextInt(10000))/100);
                 p.setPromotion(rnd.nextBoolean());
-                p.setSelected(rnd.nextBoolean());
-                p.setCategory(c);
+                p.setAvailable(rnd.nextBoolean());
                 p.setPhotoName("unknown.png");
+                p.setCategory(c);
                 productRepository.save(p);
             }
         });

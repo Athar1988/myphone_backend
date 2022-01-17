@@ -20,12 +20,14 @@ public class Product implements Serializable {
     private String description;
     private String marque;
     private double currentPrice;
+    private double pourcentage;
     private boolean promotion;
-    private boolean selected;
     private boolean available;
     private String photoName;
     @Transient
     private int quantity=1;
     @ManyToOne
     private  Category category;
+    @ManyToOne
+    private  Panier panier;
 }

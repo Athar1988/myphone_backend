@@ -12,9 +12,9 @@ import java.util.List;
 @CrossOrigin("*")
 @RepositoryRestResource
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    @RestResource(path = "/selectedProducts")
+   /* @RestResource(path = "/selectedProducts")
     public List<Product> findBySelectedIsTrue();
-
+*/
     @RestResource(path = "/productsName")
     public List<Product> findByNameContains(@Param("mc") String mc);
     @RestResource(path = "/productsMarque")
