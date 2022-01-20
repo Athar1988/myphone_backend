@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -13,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @ToString
 @Table(name = "reddit_Client")
-public class Client {
+public class Client implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
@@ -23,9 +25,12 @@ public class Client {
     private String ville;
     private String address;
     private String motdepasse;
-    @OneToOne
-    private Panier panier;
-    @OneToOne
-    private Order order;
-
+    @OneToMany(mappedBy = "client")
+    @ToString.Exclude
+    private Collection<ProductItem> productItems;
+    @OneToMany(mappedBy = "client")
+    @ToString.Exclude
+    private Collection<Commande> commande;
 }
+
+

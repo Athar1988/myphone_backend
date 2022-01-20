@@ -2,8 +2,7 @@ package ecommercebackend.ecommerce;
 
 import ecommercebackend.ecommerce.dao.CategoryRepository;
 import ecommercebackend.ecommerce.dao.ProductRepository;
-import ecommercebackend.ecommerce.entities.Category;
-import ecommercebackend.ecommerce.entities.Product;
+import ecommercebackend.ecommerce.entities.*;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,7 +28,14 @@ public class ECommerceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        repositoryRestConfiguration.exposeIdsFor(Product.class,Category.class);
+        repositoryRestConfiguration.exposeIdsFor(
+                Product.class,
+                Category.class,
+                Client.class,
+                Order.class,
+                OrderItem.class,
+                Payment.class,
+                ProductItem.class);
 
         categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
@@ -45,7 +51,7 @@ public class ECommerceApplication implements CommandLineRunner {
         categoryRepository.save(new Category(null,"Divers","bi bi-gift-fill",null));
         Random rnd=new Random();
         categoryRepository.findAll().forEach(c->{
-            for (int i = 0; i <10 ; i++) {
+            for (int i = 0; i <3 ; i++) {
                 Product p=new Product();
                 p.setName(RandomString.make(18));
                 p.setMarque(RandomString.make(6));

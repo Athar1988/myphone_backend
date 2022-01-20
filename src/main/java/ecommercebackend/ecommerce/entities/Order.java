@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -18,13 +19,12 @@ public class Order {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
-    @OneToMany(mappedBy = "order")
-    private Collection<OrderItem> orderItems;
-    @OneToOne
+    /*@OneToMany(mappedBy = "order")
+    @ToString.Exclude
+    private Collection<ProductItem> productsitem;
+    @ManyToOne
     private Client client;
     private double totalAmount;
     @OneToOne
-    private Payment payment;
-
-
+    private Payment payment;*/
 }

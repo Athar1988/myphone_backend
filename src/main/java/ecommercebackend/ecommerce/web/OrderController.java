@@ -1,13 +1,11 @@
 package ecommercebackend.ecommerce.web;
 
+
+import  ecommercebackend.ecommerce.entities.*;
 import ecommercebackend.ecommerce.dao.ClientRepository;
 import ecommercebackend.ecommerce.dao.OrderItemRepository;
 import ecommercebackend.ecommerce.dao.OrderRepository;
 import ecommercebackend.ecommerce.dao.ProductRepository;
-import ecommercebackend.ecommerce.entities.Client;
-import ecommercebackend.ecommerce.entities.Order;
-import ecommercebackend.ecommerce.entities.OrderItem;
-import ecommercebackend.ecommerce.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +25,7 @@ public class OrderController {
     private OrderRepository orderRepository;
     @Autowired
     private OrderItemRepository orderItemRepository;
+
     @PostMapping("/orders")
     public Order saveOrder(@RequestBody OrderForm orderForm){
         Client client=new Client();
@@ -42,7 +41,7 @@ public class OrderController {
         System.out.println(client.getId());
 
         Order order=new Order();
-        order.setClient(client);
+        //order.setClient(client);
         order.setDate(new Date());
         order=orderRepository.save(order);
         double total=0;
@@ -56,7 +55,7 @@ public class OrderController {
             orderItemRepository.save(orderItem);
             total+=p.getQuantity()*product.getCurrentPrice();
         }
-        order.setTotalAmount(total);
+        //order.setTotalAmount(total);
         return orderRepository.save(order);
     }
 

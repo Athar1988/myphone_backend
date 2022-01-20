@@ -1,7 +1,7 @@
 package ecommercebackend.ecommerce.web;
 
-import lombok.Data;
 import ecommercebackend.ecommerce.entities.Client;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;

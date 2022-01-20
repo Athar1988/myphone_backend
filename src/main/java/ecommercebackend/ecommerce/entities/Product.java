@@ -7,11 +7,12 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 @Table(name = "reddit_Product")
 public class Product implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,7 @@ public class Product implements Serializable {
     @Transient
     private int quantity=1;
     @ManyToOne
+    @ToString.Exclude
     private  Category category;
-    @ManyToOne
-    private  Panier panier;
+
 }

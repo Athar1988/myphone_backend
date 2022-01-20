@@ -1,9 +1,14 @@
 package ecommercebackend.ecommerce.web;
 
 import ecommercebackend.ecommerce.dao.ClientRepository;
+import ecommercebackend.ecommerce.dao.ProductItemRepository;
+import ecommercebackend.ecommerce.entities.Category;
 import ecommercebackend.ecommerce.entities.Client;
+import ecommercebackend.ecommerce.entities.Product;
+import ecommercebackend.ecommerce.entities.ProductItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 
 @CrossOrigin("*")
@@ -13,7 +18,8 @@ public class ClientRestController {
 
     @Autowired
     private ClientRepository repClient;
-
+    @Autowired
+    private ProductItemRepository repproductItem;
 
     //ajouter un client
     @PostMapping(value = "/clients/AjouteClient")
@@ -34,4 +40,13 @@ public class ClientRestController {
         C.setId(id);
         return repClient.save(C);
     }
+
+    //ajouter Itemproduct to client
+    @PostMapping(path = "client/{id}/itemproduct")
+    public void ajouterProduit(@PathVariable(name="id")  Long id, @RequestBody ProductItem PI)throws Exception{
+        Client c= repClient.findById(id).get();
+        PI.setClient(c);
+        repproductItem.save(PI);
+    }
+
 }

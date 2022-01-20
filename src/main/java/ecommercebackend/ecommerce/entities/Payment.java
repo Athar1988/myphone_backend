@@ -23,6 +23,6 @@ public class Payment {
     private String cardType;
     @OneToOne(mappedBy = "payment")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Order order;
+    private Commande commande;
 
 }
