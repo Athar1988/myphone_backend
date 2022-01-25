@@ -5,7 +5,9 @@ import ecommercebackend.ecommerce.dao.ProductRepository;
 import ecommercebackend.ecommerce.entities.Category;
 import ecommercebackend.ecommerce.entities.Client;
 import ecommercebackend.ecommerce.entities.Product;
+import ecommercebackend.ecommerce.entities.ProductItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,16 +48,15 @@ public class CatalogueRestController {
 
 
 
+
     @PostMapping(path = "/categorie/{id}/product")
     public void ajouterProduit(@PathVariable(name="id")  Long id, @RequestBody Product p)throws Exception{
-       // productRepository.findAll().add(p);
-        //System.out.println(C.getProducts()+" les produits");
-        //Category c= new Category();
         Category c= categoryRepository.findById(id).get();
-        System.out.println(c+" la catégorie");
-        System.out.println(p+" produit avant modifier");
         p.setCategory(c);
-        System.out.println(p+" produit apres modifier");
         productRepository.save(p);
     }
+
+
+
+
 }

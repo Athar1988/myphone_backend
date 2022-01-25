@@ -30,13 +30,13 @@ public class ClientRestController {
 
   //supprimer client
     @DeleteMapping(value = "/clients/supprimerClient/{id}")
-    public void supprimeruserUtilisateur(@PathVariable(name="id")  Long id) {
+    public void supprimeruserUtilisateur(@PathVariable(name="id")  Long id)throws Exception {
         repClient.deleteById(id);
     }
 
     //Mettre à jour un client
     @PutMapping(value ="/clients/misejour{id}")
-    public Client UpdateProduit(@PathVariable(name="id") Long id, @RequestBody Client C){
+    public Client UpdateProduit(@PathVariable(name="id") Long id, @RequestBody Client C)throws Exception{
         C.setId(id);
         return repClient.save(C);
     }
@@ -47,6 +47,17 @@ public class ClientRestController {
         Client c= repClient.findById(id).get();
         PI.setClient(c);
         repproductItem.save(PI);
+    }
+
+
+    @PostMapping(value = "/productItems/{id}")
+    public void updateItem(@PathVariable(name="id") Long id, @RequestBody ProductItem newItem) throws Exception{
+        Client C= repClient.findById(id).get();
+        ProductItem item=repproductItem.findById(newItem.getId()).get();
+        item.setQuantiteCommander(newItem.getQuantiteCommander());
+        item.setId(newItem.getId());
+        item.setClient(C);
+        repproductItem.save(item);
     }
 
 }
