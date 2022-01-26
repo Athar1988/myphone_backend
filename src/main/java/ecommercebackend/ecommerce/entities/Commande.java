@@ -7,8 +7,11 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -22,9 +25,11 @@ public class Commande implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
+    private String statut;
     @OneToMany(mappedBy = "commande")
     @ToString.Exclude
-    private Collection<ProductItem> productsitem;
+    //private Collection<ProductItem> productsitem;
+    private List<ProductItem> productsitem=new ArrayList<>();
     @ManyToOne
     private Client client;
     private double totalAmount;

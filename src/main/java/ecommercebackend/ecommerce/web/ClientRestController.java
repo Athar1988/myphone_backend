@@ -2,9 +2,7 @@ package ecommercebackend.ecommerce.web;
 
 import ecommercebackend.ecommerce.dao.ClientRepository;
 import ecommercebackend.ecommerce.dao.ProductItemRepository;
-import ecommercebackend.ecommerce.entities.Category;
 import ecommercebackend.ecommerce.entities.Client;
-import ecommercebackend.ecommerce.entities.Product;
 import ecommercebackend.ecommerce.entities.ProductItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +47,7 @@ public class ClientRestController {
         repproductItem.save(PI);
     }
 
-
+    //modifier la quantité commander
     @PostMapping(value = "/productItems/{id}")
     public void updateItem(@PathVariable(name="id") Long id, @RequestBody ProductItem newItem) throws Exception{
         Client C= repClient.findById(id).get();

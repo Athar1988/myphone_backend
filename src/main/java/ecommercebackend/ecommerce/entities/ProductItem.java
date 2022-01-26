@@ -24,7 +24,7 @@ public class ProductItem implements Serializable {
     private int quantiteCommander;
     private double pourcentage;
     private double prixUn;
-    private double prixtotalproduit;
+    //private double prixtotalproduit;
     @ManyToOne
     @ToString.Exclude
     private  Client client;
