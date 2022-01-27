@@ -32,8 +32,7 @@ public class ECommerceApplication implements CommandLineRunner {
                 Product.class,
                 Category.class,
                 Client.class,
-                Order.class,
-                OrderItem.class,
+                Commande.class,
                 Payment.class,
                 ProductItem.class);
 

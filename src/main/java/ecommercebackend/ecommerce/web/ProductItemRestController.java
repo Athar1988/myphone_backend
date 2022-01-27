@@ -7,7 +7,6 @@ import ecommercebackend.ecommerce.entities.Client;
 import ecommercebackend.ecommerce.entities.ProductItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @CrossOrigin("*")
@@ -39,7 +38,6 @@ public class ProductItemRestController {
 
         }
     }
-
 
 
 }

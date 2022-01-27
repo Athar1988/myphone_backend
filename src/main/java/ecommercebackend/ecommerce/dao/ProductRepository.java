@@ -40,4 +40,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     //dernierAjoute les 10 dernier produit
    /* @RestResource(path = "/dernierAjoute")
     public List<Product> findByAvailableIsTrue();*/
+
 }

@@ -1,15 +1,17 @@
 package ecommercebackend.ecommerce.web;
 
 import ecommercebackend.ecommerce.entities.Client;
+import ecommercebackend.ecommerce.entities.ProductItem;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
 public class OrderForm {
     private Client client=new Client();
-    private List<OrderProduct> products=new ArrayList<>();
+    private List<ProductItem> products=new ArrayList<>();
 }
 
 @Data
