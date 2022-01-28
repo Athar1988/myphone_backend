@@ -26,46 +26,21 @@ public class CommandeController {
     @PostMapping("/commandes")
     public void ajouterCommande(@RequestBody OrderForm orderForm)
     {
-        /*Client client=new Client();
-        client.setNom(orderForm.getClient().getNom());
-        client.setEmail(orderForm.getClient().getEmail());
-        client.setAddress(orderForm.getClient().getAddress());
-        client.setTelephone(orderForm.getClient().getTelephone());
-        client.setPrenom(orderForm.getClient().getPrenom());
-        client.setMotdepasse(orderForm.getClient().getMotdepasse());
-        client.setVille(orderForm.getClient().getVille());
-        client=repClient.save(client);
-        System.out.println(client.getId());
-        */
-
         Client client= repClient.getById(orderForm.getClient().getId());
         Commande commande=new Commande();
         commande.setClient(client);
         commande.setDate(new Date());
-        commande.setStatut("Envoyer");
+        commande.setStatut("En cours");
         double total=0;
         for(ProductItem p:orderForm.getProducts()) {
             ProductItem item=repproductItem.findById(p.getId()).get();
-            System.out.println(item.getPrixtotalproduit()+" rrrr");
             total+= item.getPrixtotalproduit();
             item.setCommande(commande);
         }
-        System.out.println(total+" le total");
         commande.setTotalAmount(total);
         commande.setProductsitem(orderForm.getProducts());
         commandeRepository.save(commande);
 
-        /*for(ProductItem p:orderForm.getProducts()){
-            ProductItem item=repproductItem.findById(p.getId()).get();
-            item.setCommande(commande);
-
-
-            orderItem.setProduct(product);
-            orderItem.setPrice(product.getCurrentPrice());
-            orderItem.setQuantity(p.getQuantity());
-            orderItemRepository.save(orderItem);
-        }
-         commandeRepository.save(commande);*/
     }
 
 }
