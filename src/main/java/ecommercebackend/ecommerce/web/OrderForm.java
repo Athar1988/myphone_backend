@@ -1,7 +1,7 @@
 package ecommercebackend.ecommerce.web;
 
 import ecommercebackend.ecommerce.entities.Client;
-import ecommercebackend.ecommerce.entities.ProductItem;
+import ecommercebackend.ecommerce.entities.ItemsCommande;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class OrderForm {
     private Client client=new Client();
-    private List<ProductItem> products=new ArrayList<>();
+    private List<ItemsCommande> products=new ArrayList<>();
 }
 
 @Data

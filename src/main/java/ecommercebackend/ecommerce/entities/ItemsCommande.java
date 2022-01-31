@@ -14,10 +14,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 //@ToString
-@Table(name = "reddit_ProductItem")
-public class ProductItem implements Serializable {
+@Table(name = "reddit_ItemsCommande")
+public class ItemsCommande implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String image;
@@ -28,7 +27,7 @@ public class ProductItem implements Serializable {
     @ManyToOne
     @ToString.Exclude
     private  Client client;
-    /*@ManyToOne
+    @ManyToOne
     @ToString.Exclude
-    private  Commande commande;*/
+    private  Commande commande;
 }

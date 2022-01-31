@@ -28,7 +28,7 @@ public class Commande implements Serializable {
     private String statut;
     @OneToMany(mappedBy = "commande")
     @ToString.Exclude
-    private Collection<ProductItem> productsitem;
+    private Collection<ItemsCommande> itemsCommande;
     @ManyToOne
     private Client client;
     private double totalAmount;

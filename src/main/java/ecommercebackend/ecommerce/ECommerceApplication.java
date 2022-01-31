@@ -34,7 +34,8 @@ public class ECommerceApplication implements CommandLineRunner {
                 Client.class,
                 Commande.class,
                 Payment.class,
-                ProductItem.class);
+                ProductItem.class,
+                ItemsCommande.class);
 
         categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));

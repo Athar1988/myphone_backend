@@ -3,11 +3,12 @@ package ecommercebackend.ecommerce.web;
 import ecommercebackend.ecommerce.dao.*;
 import ecommercebackend.ecommerce.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @CrossOrigin("*")
 @RestController
@@ -20,7 +21,8 @@ public class CommandeController {
     private ProductRepository productRepository;
     @Autowired
     private ProductItemRepository repproductItem;
-
+    @Autowired
+    private ItemsCommandeRepository repitemsCommande;
 
     //ajouter un commande
     @PostMapping("/commandes")
@@ -32,16 +34,28 @@ public class CommandeController {
         commande.setDate(new Date());
         commande.setStatut("En cours");
         double total=0;
-        for(ProductItem p:orderForm.getProducts()) {
+        for(ItemsCommande p:orderForm.getProducts()) {
             ProductItem item=repproductItem.findById(p.getId()).get();
             total+= item.getPrixtotalproduit();
-            item.setCommande(commande);
         }
         commande.setTotalAmount(total);
-        commande.setProductsitem(orderForm.getProducts());
+        commande.setItemsCommande(orderForm.getProducts());
         commandeRepository.save(commande);
+
+        for(ItemsCommande p:orderForm.getProducts()) {
+            ProductItem item=repproductItem.findById(p.getId()).get();
+            ItemsCommande itemsCommande= new ItemsCommande(p.getId(), item.getName(), item.getImage(),item.getQuantiteCommander(), item.getPourcentage(), item.getPrixUn(), item.getPrixtotalproduit(), item.getClient(), null);
+            itemsCommande.setCommande(commande);
+            repitemsCommande.save(itemsCommande);
+        }
 
     }
 
-}
+  /*  @GetMapping(value = "/clients/id/commande")
+    public Collection<Commande>  recupereTousCommande(@RequestBody Long id){
+        Client C= repClient.findById(id).get();
+        Collection<Commande> listeCommande= C.getCommande();
+        return  listeCommande;
+    }*/
 
+}
