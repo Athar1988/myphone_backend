@@ -1,19 +1,26 @@
 package ecommercebackend.ecommerce.web;
 
 import ecommercebackend.ecommerce.dao.CategoryRepository;
+import ecommercebackend.ecommerce.dao.ImageRepository;
 import ecommercebackend.ecommerce.dao.ProductRepository;
 import ecommercebackend.ecommerce.entities.Category;
-import ecommercebackend.ecommerce.entities.Client;
+import ecommercebackend.ecommerce.entities.ImageModel;
 import ecommercebackend.ecommerce.entities.Product;
-import ecommercebackend.ecommerce.entities.ProductItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Optional;
+import java.util.zip.DataFormatException;
+import java.util.zip.Deflater;
+import java.util.zip.Inflater;
 
 
 @CrossOrigin("*")
@@ -23,7 +30,8 @@ public class CatalogueRestController {
     private ProductRepository productRepository;
     @Autowired
     private CategoryRepository categoryRepository;
-
+    @Autowired
+    ImageRepository imageRepository;
 
     /*public CatalogueRestController(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -31,22 +39,21 @@ public class CatalogueRestController {
 
 
 
-    @GetMapping(path="/photoProduct/{id}",produces = MediaType.IMAGE_PNG_VALUE)
+  /*  @GetMapping(path="/photoProduct/{id}",produces = MediaType.IMAGE_PNG_VALUE)
     public byte[] getPhoto(@PathVariable("id") Long id) throws Exception{
         Product p=productRepository.findById(id).get();
-        return Files.readAllBytes(Paths.get(System.getProperty("user.home")+"/ecom/products/"+p.getPhotoName()));
+        return Files.readAllBytes(Paths.get(System.getProperty("user.home")+"/ecom/products/"+p.getPhoto()));
     }
+*/
 
-
-    @PostMapping(path = "/uploadPhoto/{id}")
+   /* @PostMapping(path = "/uploadPhoto/{id}")
     public void uploadPhoto(MultipartFile file, @PathVariable Long id) throws Exception{
        Product p=productRepository.findById(id).get();
        p.setPhotoName(file.getOriginalFilename());
        Files.write(Paths.get(System.getProperty("user.home")+"/ecom/products/"+p.getPhotoName()),file.getBytes());
        productRepository.save(p);
     }
-
-
+*/
 
 
     @PostMapping(path = "/categorie/{id}/product")
@@ -56,6 +63,10 @@ public class CatalogueRestController {
         productRepository.save(p);
     }
 
+
+    //produit en pagonation
+    //Pageable listeProduits = PageRequest.of(page, size);
+   // Page<Product> allProducts = productRepository.findAll(listeProduits);
 
 
 

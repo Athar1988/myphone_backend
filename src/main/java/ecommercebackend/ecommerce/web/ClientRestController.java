@@ -33,8 +33,8 @@ public class ClientRestController {
     }
 
     //Mettre à jour un client
-    @PutMapping(value ="/clients/misejour{id}")
-    public Client UpdateProduit(@PathVariable(name="id") Long id, @RequestBody Client C)throws Exception{
+    @PostMapping(value ="/clients/misejour/{id}")
+    public Client UpdateClient(@PathVariable(name="id") Long id, @RequestBody Client C)throws Exception{
         C.setId(id);
         return repClient.save(C);
     }

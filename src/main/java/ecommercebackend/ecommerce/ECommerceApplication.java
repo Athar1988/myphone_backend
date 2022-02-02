@@ -35,7 +35,8 @@ public class ECommerceApplication implements CommandLineRunner {
                 Commande.class,
                 Payment.class,
                 ProductItem.class,
-                ItemsCommande.class);
+                ItemsCommande.class,
+                ImageModel.class);
 
         categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
@@ -60,7 +61,7 @@ public class ECommerceApplication implements CommandLineRunner {
                 p.setPourcentage((100+rnd.nextInt(10000))/100);
                 p.setPromotion(rnd.nextBoolean());
                 p.setAvailable(rnd.nextBoolean());
-                p.setPhotoName("unknown.png");
+                //p.setPhotoName("unknown.png");
                 p.setCategory(c);
                 productRepository.save(p);
             }
