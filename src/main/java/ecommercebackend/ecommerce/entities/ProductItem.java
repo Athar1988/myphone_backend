@@ -20,11 +20,13 @@ public class ProductItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String image;
     private int quantiteCommander;
     private double pourcentage;
     private double prixUn;
     private double prixtotalproduit;
+    private String nameImage;
+    private String typeImage;
+    private byte[] picByte;
     @ManyToOne
     @ToString.Exclude
     private  Client client;

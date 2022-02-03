@@ -24,8 +24,11 @@ public class Product implements Serializable {
     private double pourcentage;
     private boolean promotion;
     private boolean available;
-    @OneToOne(mappedBy = "produit")
-    private ImageModel photo;
+    private String nameImage;
+    private String typeImage;
+    private byte[] picByte;
+    //@OneToOne(mappedBy = "produit")
+    //private ImageModel photo;
     private int quantity;
     @ManyToOne
     @ToString.Exclude

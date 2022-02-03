@@ -4,6 +4,7 @@ import ecommercebackend.ecommerce.dao.CategoryRepository;
 import ecommercebackend.ecommerce.dao.ImageRepository;
 import ecommercebackend.ecommerce.dao.ProductRepository;
 import ecommercebackend.ecommerce.entities.Category;
+import ecommercebackend.ecommerce.entities.Client;
 import ecommercebackend.ecommerce.entities.ImageModel;
 import ecommercebackend.ecommerce.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,13 @@ public class CatalogueRestController {
         Category c= categoryRepository.findById(id).get();
         p.setCategory(c);
         productRepository.save(p);
+    }
+
+    //Mettre à jour un client
+    @PostMapping(value ="/products/misejour/{id}")
+    public Product UpdateClient(@PathVariable(name="id") Long id, @RequestBody Product P)throws Exception{
+        P.setId(id);
+        return productRepository.save(P);
     }
 
 

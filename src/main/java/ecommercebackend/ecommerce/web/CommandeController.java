@@ -25,7 +25,7 @@ public class CommandeController {
     private ItemsCommandeRepository repitemsCommande;
 
     //ajouter un commande
-    @PostMapping("/commandes")
+    @PostMapping("/ajoutercommandes")
     public void ajouterCommande(@RequestBody OrderForm orderForm)
     {
         Client client= repClient.getById(orderForm.getClient().getId());
@@ -44,11 +44,20 @@ public class CommandeController {
 
         for(ItemsCommande p:orderForm.getProducts()) {
             ProductItem item=repproductItem.findById(p.getId()).get();
-            ItemsCommande itemsCommande= new ItemsCommande(p.getId(), item.getName(), item.getImage(),item.getQuantiteCommander(), item.getPourcentage(), item.getPrixUn(), item.getPrixtotalproduit(), item.getClient(), null);
+            ItemsCommande itemsCommande= new ItemsCommande(p.getId(), item.getName(),item.getQuantiteCommander(), item.getPourcentage(), item.getPrixUn(), item.getPrixtotalproduit(),item.getNameImage(),item.getTypeImage(),item.getPicByte(), item.getClient(), null);
             itemsCommande.setCommande(commande);
             repitemsCommande.save(itemsCommande);
         }
 
+    }
+
+
+    //Mettre à jour commande
+    @PostMapping(value ="/traitercommandes/{id}")
+    public Commande UpdateCommande(@PathVariable(name="id") Long id, @RequestBody Commande C)throws Exception{
+        C.setId(id);
+        C.setStatut("Terminer");
+        return commandeRepository.save(C);
     }
 
   /*  @GetMapping(value = "/clients/id/commande")

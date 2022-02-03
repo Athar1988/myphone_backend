@@ -38,7 +38,7 @@ public class ECommerceApplication implements CommandLineRunner {
                 ItemsCommande.class,
                 ImageModel.class);
 
-        categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
+       /* categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
         categoryRepository.save(new Category(null,"Produits apple","bi bi-phone-vibrate-fill", null));
         categoryRepository.save(new Category(null,"Coque iphone","bi bi-music-player-fill",null));
@@ -50,7 +50,8 @@ public class ECommerceApplication implements CommandLineRunner {
         categoryRepository.save(new Category(null,"Pochette","bi bi-file-ppt-fill",null));
         categoryRepository.save(new Category(null,"Camera","bi bi-camera-fill",null));
         categoryRepository.save(new Category(null,"Divers","bi bi-gift-fill",null));
-        Random rnd=new Random();
+
+       /* Random rnd=new Random();
         categoryRepository.findAll().forEach(c->{
             for (int i = 0; i <3 ; i++) {
                 Product p=new Product();
@@ -65,6 +66,6 @@ public class ECommerceApplication implements CommandLineRunner {
                 p.setCategory(c);
                 productRepository.save(p);
             }
-        });
+        });*/
     }
 }

@@ -33,26 +33,31 @@ public class ImageUploadController {
     public BodyBuilder uplaodImage(@PathVariable("id") Long idProduit, @RequestParam("imageFile") MultipartFile file) throws IOException {
         Product P=productRepository.findById(idProduit).get();
         System.out.println("Original Image Byte Size - " + file.getBytes().length);
-        ImageModel img = new ImageModel(idProduit ,file.getOriginalFilename(), file.getContentType(),
-                compressBytes(file.getBytes()), P);
-        imageRepository.save(img);
-        P.setPhoto(img);
+        P.setNameImage(file.getOriginalFilename());
+        P.setTypeImage(file.getContentType());
+        P.setPicByte(file.getBytes());
+        //ImageModel img = new ImageModel(idProduit ,file.getOriginalFilename(), file.getContentType(),
+                //compressBytes(file.getBytes()), P);
+        //imageRepository.save(img);
+       // P.setPhoto(img);
         productRepository.save(P);
         return ResponseEntity.status(HttpStatus.OK);
     }
 
 
 
-    @GetMapping(path = { "/get/{imageName}" })
-    public ImageModel getImage(@PathVariable("imageName") String imageName) throws IOException {
-        final Optional<ImageModel> retrievedImage = imageRepository.findByName(imageName);
+ /*  @GetMapping(path = { "/get/{id}" })
+    public ImageModel getImage(@PathVariable("id") Long id) throws IOException {
+        Product p= productRepository.findById(id).get();
+
+        final Optional<ImageModel> retrievedImage = imageRepository.findByName(p.getNameImage());
         ImageModel img = new ImageModel(null,retrievedImage.get().getName(), retrievedImage.get().getType(),
-                decompressBytes(retrievedImage.get().getPicByte()), null);
+                decompressBytes(retrievedImage.get().getPicByte()));
         return img;
     }
+*/
 
-
-    /*@GetMapping(path = { "products/{id}/photo" })
+  /*  @GetMapping(path = { "products/{id}" })
     public ImageModel getImage(@PathVariable("id") Long idProduit) throws IOException {
         Product P=productRepository.findById(idProduit).get();
         ImageModel img=P.getPhoto();
