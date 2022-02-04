@@ -1,6 +1,7 @@
 package ecommercebackend.ecommerce;
 
 import ecommercebackend.ecommerce.dao.CategoryRepository;
+import ecommercebackend.ecommerce.dao.LoginRepository;
 import ecommercebackend.ecommerce.dao.ProductRepository;
 import ecommercebackend.ecommerce.entities.*;
 import net.bytebuddy.utility.RandomString;
@@ -19,6 +20,8 @@ public class ECommerceApplication implements CommandLineRunner {
     @Autowired
     private CategoryRepository categoryRepository;
     @Autowired
+    private LoginRepository loginRepository;
+    @Autowired
     private RepositoryRestConfiguration repositoryRestConfiguration;
 
     public static void main(String[] args) {
@@ -36,8 +39,11 @@ public class ECommerceApplication implements CommandLineRunner {
                 Payment.class,
                 ProductItem.class,
                 ItemsCommande.class,
-                ImageModel.class);
+                ImageModel.class,
+                Contact.class,
+                Login.class);
 
+        //loginRepository.save(new Login(null,"best","best"));
        /* categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
         categoryRepository.save(new Category(null,"Produits apple","bi bi-phone-vibrate-fill", null));
