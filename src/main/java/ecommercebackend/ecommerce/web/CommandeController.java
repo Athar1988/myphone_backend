@@ -55,7 +55,9 @@ public class CommandeController {
     //Mettre à jour commande
     @PostMapping(value ="/traitercommandes/{id}")
     public Commande UpdateCommande(@PathVariable(name="id") Long id, @RequestBody Commande C)throws Exception{
+        Client Client= commandeRepository.findById(id).get().getClient();
         C.setId(id);
+        C.setClient(Client);
         C.setStatut("Terminer");
         return commandeRepository.save(C);
     }

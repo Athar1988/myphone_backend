@@ -45,6 +45,7 @@ public class ClientRestController {
         Client c= repClient.findById(id).get();
         System.out.println(PI.getPrixtotalproduit()+" eee");
         PI.setClient(c);
+        //PI.setId(PI.getId());
         repproductItem.save(PI);
     }
 

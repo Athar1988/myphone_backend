@@ -35,7 +35,6 @@ public class ProductItemRestController {
             ProductItem y = (ProductItem) items[i];
             Long iditem = y.getId();
             productitemRepository.deleteById(iditem);
-
         }
     }
 
