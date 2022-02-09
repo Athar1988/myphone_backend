@@ -43,8 +43,8 @@ public class ECommerceApplication implements CommandLineRunner {
                 Contact.class,
                 Login.class);
 
-        //loginRepository.save(new Login(null,"best","best"));
-       /* categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
+        loginRepository.save(new Login(null,"best","best"));
+        /*categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
         categoryRepository.save(new Category(null,"Produits apple","bi bi-phone-vibrate-fill", null));
         categoryRepository.save(new Category(null,"Coque iphone","bi bi-music-player-fill",null));

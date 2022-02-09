@@ -22,7 +22,9 @@ public class Contact implements Serializable {
     private String nom;
     private String prenom;
     private String telephone;
+    @Column(length=10485760)
     private String sujet;
+    @Column(length=10485760)
     private String message;
 
 }

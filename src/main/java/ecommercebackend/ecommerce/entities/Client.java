@@ -23,6 +23,7 @@ public class Client implements Serializable {
     private String nom;
     private String prenom;
     private String ville;
+    @Column(length=10485760)
     private String address;
     private String motdepasse;
     @OneToMany(mappedBy = "client")

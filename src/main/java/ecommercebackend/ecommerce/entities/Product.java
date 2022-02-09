@@ -18,6 +18,7 @@ public class Product implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(length=10485760)
     private String description;
     private String marque;
     private double currentPrice;
@@ -27,8 +28,6 @@ public class Product implements Serializable {
     private String nameImage;
     private String typeImage;
     private byte[] picByte;
-    //@OneToOne(mappedBy = "produit")
-    //private ImageModel photo;
     private int quantity;
     @ManyToOne
     @ToString.Exclude

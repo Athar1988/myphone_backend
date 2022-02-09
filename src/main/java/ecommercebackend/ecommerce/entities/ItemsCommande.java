@@ -19,7 +19,6 @@ public class ItemsCommande implements Serializable {
     @Id
     private Long id;
     private String name;
-    //private String image;
     private int quantiteCommander;
     private double pourcentage;
     private double prixUn;
