@@ -1,17 +1,15 @@
 package ecommercebackend.ecommerce;
 
-import ecommercebackend.ecommerce.dao.CategoryRepository;
-import ecommercebackend.ecommerce.dao.LoginRepository;
-import ecommercebackend.ecommerce.dao.ProductRepository;
+
+import ecommercebackend.ecommerce.dao.*;
 import ecommercebackend.ecommerce.entities.*;
-import net.bytebuddy.utility.RandomString;
+//import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-
-import java.util.Random;
+//import java.util.Random;
 
 @SpringBootApplication
 public class ECommerceApplication implements CommandLineRunner {
@@ -27,16 +25,13 @@ public class ECommerceApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(ECommerceApplication.class, args);
     }
-
     @Override
     public void run(String... args) throws Exception {
-
         repositoryRestConfiguration.exposeIdsFor(
                 Product.class,
                 Category.class,
                 Client.class,
                 Commande.class,
-                Payment.class,
                 ProductItem.class,
                 ItemsCommande.class,
                 ImageModel.class,
@@ -44,7 +39,7 @@ public class ECommerceApplication implements CommandLineRunner {
                 Login.class);
 
         loginRepository.save(new Login(null,"best","best"));
-        /*categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
+        categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
         categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
         categoryRepository.save(new Category(null,"Produits apple","bi bi-phone-vibrate-fill", null));
         categoryRepository.save(new Category(null,"Coque iphone","bi bi-music-player-fill",null));

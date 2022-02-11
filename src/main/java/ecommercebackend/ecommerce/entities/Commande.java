@@ -28,6 +28,4 @@ public class Commande implements Serializable {
     @ManyToOne
     private Client client;
     private double totalAmount;
-    @OneToOne
-    private Payment payment;
 }

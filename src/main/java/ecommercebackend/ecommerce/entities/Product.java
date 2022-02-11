@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,6 +32,7 @@ public class Product implements Serializable {
     private int quantity;
     @ManyToOne
     @ToString.Exclude
+    @Lazy
     private  Category category;
 
 }
