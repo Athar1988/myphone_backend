@@ -39,18 +39,18 @@ public class ECommerceApplication implements CommandLineRunner {
                 Login.class);
 
         loginRepository.save(new Login(null,"best","best"));
-        categoryRepository.save(new Category(null,"Telephone","bi bi-phone-fill", null));
-        categoryRepository.save(new Category(null,"Tablette","bi bi-tablet-fill",null));
-        categoryRepository.save(new Category(null,"Produits apple","bi bi-phone-vibrate-fill", null));
-        categoryRepository.save(new Category(null,"Coque iphone","bi bi-music-player-fill",null));
-        categoryRepository.save(new Category(null,"Airpods","bi bi-earbuds",null));
-        categoryRepository.save(new Category(null,"Haut parleur","bi bi-megaphone-fill",null));
-        categoryRepository.save(new Category(null,"Smart watch","bi bi-clock-fill",null));
-        categoryRepository.save(new Category(null,"Accessoires","bi bi-keyboard-fill",null));
-        categoryRepository.save(new Category(null,"Cache","bi bi-person-badge-fill",null));
-        categoryRepository.save(new Category(null,"Pochette","bi bi-file-ppt-fill",null));
-        categoryRepository.save(new Category(null,"Camera","bi bi-camera-fill",null));
-        categoryRepository.save(new Category(null,"Divers","bi bi-gift-fill",null));
+        categoryRepository.save(new Category(null,"Telephone","fa fa-mobile-phone", null));
+        categoryRepository.save(new Category(null,"Tablette","fa fa-tablet-alt",null));
+        categoryRepository.save(new Category(null,"Produits apple","fa fa-apple", null));
+        categoryRepository.save(new Category(null,"Coque iphone","fa fa-door-closed",null));
+        categoryRepository.save(new Category(null,"Airpods","fa fa-headphones",null));
+        categoryRepository.save(new Category(null,"Haut parleur","fa fa-step-forward",null));
+        categoryRepository.save(new Category(null,"Smart watch","fa fa-clock",null));
+        categoryRepository.save(new Category(null,"Accessoires","fa fa-battery-three-quarters",null));
+        categoryRepository.save(new Category(null,"Cache","fa fa-mobile",null));
+        categoryRepository.save(new Category(null,"Pochette","fa fa-briefcase",null));
+        categoryRepository.save(new Category(null,"Camera","fa fa-camera",null));
+        categoryRepository.save(new Category(null,"Divers","fa fa-gamepad",null));
 
        /* Random rnd=new Random();
         categoryRepository.findAll().forEach(c->{
