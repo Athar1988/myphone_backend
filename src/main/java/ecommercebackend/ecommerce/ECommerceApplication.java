@@ -40,12 +40,12 @@ public class ECommerceApplication implements CommandLineRunner {
 
         loginRepository.save(new Login(null,"best","best"));
         categoryRepository.save(new Category(null,"Telephone","fa fa-mobile-phone", null));
-        categoryRepository.save(new Category(null,"Tablette","fa fa-tablet-alt",null));
+        categoryRepository.save(new Category(null,"Tablette","fa fa-tablet",null));
         categoryRepository.save(new Category(null,"Produits apple","fa fa-apple", null));
-        categoryRepository.save(new Category(null,"Coque iphone","fa fa-door-closed",null));
+        categoryRepository.save(new Category(null,"Coque iphone","fa fa-portrait",null));
         categoryRepository.save(new Category(null,"Airpods","fa fa-headphones",null));
         categoryRepository.save(new Category(null,"Haut parleur","fa fa-step-forward",null));
-        categoryRepository.save(new Category(null,"Smart watch","fa fa-clock",null));
+        categoryRepository.save(new Category(null,"Smart watch","fa fa-stopwatchk",null));
         categoryRepository.save(new Category(null,"Accessoires","fa fa-battery-three-quarters",null));
         categoryRepository.save(new Category(null,"Cache","fa fa-mobile",null));
         categoryRepository.save(new Category(null,"Pochette","fa fa-briefcase",null));
