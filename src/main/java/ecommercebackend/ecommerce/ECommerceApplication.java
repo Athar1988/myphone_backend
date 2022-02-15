@@ -47,7 +47,7 @@ public class ECommerceApplication implements CommandLineRunner {
         categoryRepository.save(new Category(null,"Haut parleur","fa fa-step-forward",null));
 
 
-        categoryRepository.save(new Category(null,"Smart watch","fa fa-watch",null));
+        categoryRepository.save(new Category(null,"Smart watch","fa fa-alarm-clock",null));
 
 
         categoryRepository.save(new Category(null,"Accessoires","fa fa-battery-three-quarters",null));
