@@ -25,7 +25,7 @@ public class CommandeController {
     private ItemsCommandeRepository repitemsCommande;
 
     //ajouter un commande
-    @PostMapping("/ajoutercommandes")
+    @PostMapping("ajoutercommandes")
     public void ajouterCommande(@RequestBody OrderForm orderForm)
     {
         Client client= repClient.getById(orderForm.getClient().getId());
