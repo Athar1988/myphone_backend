@@ -57,7 +57,9 @@ public class ClientRestController {
         ProductItem item=repproductItem.findById(newItem.getId()).get();
         item.setQuantiteCommander(newItem.getQuantiteCommander());
         if(item.getPourcentage()!=0){
-        total=item.getPrixUn()-((newItem.getQuantiteCommander()*item.getPrixUn())*(item.getPourcentage()/100));
+            total= (item.getPrixUn()-(item.getPrixUn()*item.getPourcentage())/100);
+            total= total*newItem.getQuantiteCommander();
+        //total=item.getPrixUn()-((newItem.getQuantiteCommander()*item.getPrixUn())*item.getPourcentage())/100));
         }
         else{
          total=(newItem.getQuantiteCommander()*item.getPrixUn());

@@ -38,7 +38,7 @@ public class ECommerceApplication implements CommandLineRunner {
                 Contact.class,
                 Login.class);
 
-        loginRepository.save(new Login(null,"best","best"));
+      /*  loginRepository.save(new Login(null,"best","best"));
         categoryRepository.save(new Category(null,"Telephone","fa fa-mobile-phone", null));
         categoryRepository.save(new Category(null,"Tablette","fa fa-tablet",null));
         categoryRepository.save(new Category(null,"Produits apple","fa fa-apple", null));
@@ -51,7 +51,7 @@ public class ECommerceApplication implements CommandLineRunner {
         categoryRepository.save(new Category(null,"Pochette","fa fa-briefcase",null));
         categoryRepository.save(new Category(null,"Camera","fa fa-camera",null));
         categoryRepository.save(new Category(null,"Divers","fa fa-gamepad",null));
-
+*/
        /* Random rnd=new Random();
         categoryRepository.findAll().forEach(c->{
             for (int i = 0; i <3 ; i++) {
